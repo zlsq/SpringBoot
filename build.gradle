@@ -30,7 +30,16 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+    compile('mysql:mysql-connector-java')
+
+//    compile('javax.servlet:javax.servlet-api')
+    compile('javax.servlet:jstl')
+//    To compile JSP files
+    compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

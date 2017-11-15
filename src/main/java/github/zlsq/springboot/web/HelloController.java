@@ -1,19 +1,27 @@
 package github.zlsq.springboot.web;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
- * Created by lishuqin on 2017/11/13.
+ * @author zlsq
+ * @date 2017/11/13
  */
-@RestController
-@EnableAutoConfiguration
+//此处不能使用@RestController,否则不能返回jsp页面
+//@RestController = @ResponseBody ＋ @Controller
+@Controller
 public class HelloController {
 
-    @RequestMapping("/hello")
-    public String index() {
-        return "Hello World";
+    @Value("${application.hello:Hello,Man}")
+    private String hello;
+
+    @RequestMapping("/1")
+    public String hello(Map<String, Object> model) {
+        model.put("hello", hello);
+        return "hello";
     }
 
 
